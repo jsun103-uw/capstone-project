@@ -26,5 +26,46 @@
     </header>
     <body>
         <h1 class="section-title">Experience</h1>
+        <section>
+            <h2>Network & Communication</h2>
+            <h3>Connection</h3>
+            <p>
+                In the initial connection, the client pings the master server for a list of available game instances. Each game instance has an IP end point that the client can connect to to join the instance.
+            </p>
+            <img src="res/ClientServer.png">
+            <h3>Communication</h3>
+            <p>
+                I used LiteNetLib as a network library as it was a good balance between the flexibility of raw sockets and the ease of a high-level game development network library.
+            </p>
+            <p>
+                There are three primary ways the client and server communicate as shown below. Polling was a natural choice as LiteNetLib polls incoming network events. 
+            </p>
+            <img src="res/Communication.png">
+        </section>
+        <section>
+            <h2>Gameplay</h2>
+            <h3>Architecture</h3>
+            <p>
+                I did not want to tightly couple my gameplay systems with the game engine, so I separated the model and the adapter layers as shown below. The adapter (Godot) would handle physics server side and rendering client side.
+            </p>
+            <img src="res/Architecture.png">
+            <h3>Movement</h3>
+            <p>
+                Players use WASD to move. The server uses Godot to calculate the new position based on the velocity, and updates the client.
+            </p>
+            <img src="res/Movement.png">
+            <h3>Shooting</h3>
+            <p>
+                In the prototype, the client streams input information to the server. When the player fires a shot, the server reduces the health of a hit enemy if applicable and communicates the event to the client. The client adds a projectile to the scene which is quickly deleted after its timer runs out.
+            </p>
+            <img src="res/Shooting.png">
+        </section>
+        <section>
+            <h2>Product</h2>
+            <p>
+                A demo of the game prototype.
+            </p>
+            <video src="res/PrototypeVideo.mp4" controls>
+        </section>
     </body>
 </html>

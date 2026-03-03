@@ -58,7 +58,20 @@ section {
     margin-right: auto;
 }
 
+
+section {
+    margin-top: 100px;
+}
 section > h2 {
     color: #c5b4e3;
     margin-top: 50px;
+}
+section > h3 {
+    margin-top: 30px;
+}
+
+img {
+    background-color: aliceblue;
+    padding: 20px;
+    max-width: 100%;
 }
