@@ -38,7 +38,7 @@
                 I used LiteNetLib as a network library as it was a good balance between the flexibility of raw sockets and the ease of a high-level game development network library.
             </p>
             <p>
-                There are three primary ways the client and server communicate as shown below. Polling was a natural choice as LiteNetLib polls incoming network events. 
+                There are three primary ways the client and server communicate. Polling was a natural choice as LiteNetLib polls incoming network events. 
             </p>
             <img src="res/Communication.png">
         </section>
@@ -46,7 +46,7 @@
             <h2>Gameplay</h2>
             <h3>Architecture</h3>
             <p>
-                I did not want to tightly couple my gameplay systems with the game engine, so I separated the model and the adapter layers as shown below. The adapter (Godot) would handle physics server side and rendering client side.
+                I did not want to tightly couple my gameplay systems with the game engine, so I separated the model and the adapter layers. The adapter (Godot) would handle physics server side and rendering client side.
             </p>
             <img src="res/Architecture.png">
             <h3>Movement</h3>
