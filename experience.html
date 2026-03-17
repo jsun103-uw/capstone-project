@@ -27,7 +27,8 @@
     <body>
         <h1 class="section-title">Experience</h1>
         <section>
-            <h2>Network & Communication</h2>
+            <p>This page contains project artifacts and shows how they evolved over time. It is organized into the network, gameplay dataflow, user interface, and project demo sections.</p>
+            <h2>Network</h2>
             <h3>Connection</h3>
             <p>
                 In the initial connection, the client pings the master server for a list of available game instances. Each game instance has an IP end point that the client can connect to to join the instance.
@@ -43,7 +44,10 @@
             <img src="res/Communication.png">
         </section>
         <section>
-            <h2>Gameplay</h2>
+            <h2>Dataflow</h2>
+            <p>
+                This section explains the data flow of gameplay systems. The basic layered architecture remained the same throughout the project, but new components were added as the project progressed.
+            </p>
             <h3>Architecture</h3>
             <p>
                 I did not want to tightly couple my gameplay systems with the game engine, so I separated the model and the adapter layers. The adapter (Godot) would handle physics server side and rendering client side.
@@ -59,6 +63,17 @@
                 In the prototype, the client streams input information to the server. When the player fires a shot, the server reduces the health of a hit enemy if applicable and communicates the event to the client. The client adds a projectile to the scene which is quickly deleted after its timer runs out.
             </p>
             <img src="res/Shooting.png">
+        </section>
+        <section>
+            <h2>User Interface</h2>
+            <p>
+                My initial user interface had components in three corners and the bottom. I placed the health at the bottom, the abilities in the bottom left, weapon information and purchasing in the bottom right, and the currency in the top left. The goal was so that users could clearly distinguish each component, and if they wanted information on a specific component, they could glance at the corner and only see the information they needed.
+            </p>
+            <img src="res/UiFirst.png">
+            <p>
+                After receiving feedback about the different components being too far apart, I moved everything to the bottom right corner. This allowed users to quickly navigate between features using a mouse and take in more information at a glance.
+            </p>
+            <img src="res/UISecond.png">
         </section>
         <section>
             <h2>Product</h2>
