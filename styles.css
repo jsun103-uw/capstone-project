@@ -8,12 +8,16 @@ body {
     background-color: rgb(50, 0, 110);
 }
 
+.title-banner {
+    min-height: 70vh;
+    padding: 80px 20px;
+}
 
 .title-line{
     color: white;
-    font-size: 100px;
+    font-size: clamp(52px, 12vw, 100px);
     font-weight: 900;
-    margin: 50px;
+    margin: 50px 20px;
 }
 .section-title {
     color: #c5b4e3;
@@ -26,7 +30,7 @@ body {
 .desc {
     color: white;
     font-size: 20px;
-    width: clamp(410px, 50vw, 800px);
+    width: min(100%, 800px);
     margin: 40px;
     text-align: center;
 }
@@ -62,6 +66,7 @@ section {
 
 section {
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 section > h2 {
     color: #c5b4e3;

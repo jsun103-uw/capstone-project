@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100 title-bg">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body class="h-100">
-        <div class="d-flex align-items-center justify-content-center flex-column title-bg h-100">
+    <body>
+        <header class="d-flex align-items-center justify-content-center flex-column title-bg title-banner">
             <h1 class="title-line text-center">OpenTrenches</h1>
             <p class="desc text-center">
                 A multiplayer trench-warfare game to bring the group-based battles of foxholes into an arcade style.
             </p>
             <div class="d-flex gap-4 flex-row flex-wrap justify-content-center">
-                <button onclick="window.location.href='user.html';">
-                    Gameplay
-                </button>
                 <button onclick="window.location.href='experience.html';">
                     Experience
                 </button>
@@ -25,6 +23,25 @@
                     Annotated Bibliography    
                 </button>
             </div>
-        </div>
+        </header>
+        <main id="gameplay">
+            <h1 class="section-title">The Game</h1>
+            <section>
+                <h2>Synopsis</h2>
+                <p>
+                    OpenTrenches is a 2D top down trench warfare shooter. Entrench positions to defend against enemy attacks and assault entrenched positions or maneuver around them in cooperation with dozens of players and bots. Become a cog in a machine, and play as an ordinary soldier where outcomes are decided by many and not by one.
+                </p>
+                <h2>Inspiration</h2>
+                <p>
+                    Open trenches is a game inspired by the themes of Foxhole and the style of Diep.io. It captures the trench warfare and massive team battle mechanics of Foxhole, simplified to the digestable format of IO games. It diverts from its inspiration by opting for quicker-paced gameplay and lower stakes, eliminating the logistics side of foxhole gameplay and thrusting players right in to the action.
+                </p>
+                <h2>The Features</h2>
+                <ul>
+                    <li>Fight with trench warfare; entrench and defend positions and assault entrenched positions.</li>
+                    <li>Cooperate with other players and bots in large scale coordinated efforts.</li>
+                    <li>Purchase new weapons and activated abilities using per-game currency.</li>
+                </ul>
+            </section>
+        </main>
     </body>
 </html>
