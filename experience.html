@@ -52,7 +52,7 @@
             <img src="res/Architecture.png">
             <h3>Movement</h3>
             <p>
-                Players use WASD to move. The server uses Godot to calculate the new position based on the velocity, and updates the client.
+                Players use WASD to move. The server uses Godot to calculate the new position based on the velocity, and updates the client. Players will automatically fall into trenches if their center enters a trench cell, and they can exit by moving towards a trench wall and pressing space.
             </p>
             <img src="res/Movement.png">
             <h3>Shooting</h3>
@@ -71,6 +71,21 @@
                 After receiving feedback about the different components being too far apart, I moved everything to the bottom right corner. This allowed users to quickly navigate between features using a mouse and take in more information at a glance.
             </p>
             <img src="res/UISecond.png">
+            <p>
+                Later on in testing, I found that play testers weren't really primed to open up the upgrades tab to change their equipment. To prompt them, I added a float at the top right of the screen that would expand when an upgrade became available, that could also be hidden if they wanted to preserve logistics. This formed a balance between clear separation of upgrades versus current equipment with proximity and having all the important indicators grouped close together.
+            </p>
+            <img src="res/UIThird.png">
+        </section>
+        <section>
+            <h2>Character AI</h2>
+            <p>
+                The AI went through several draft designs. The end goal was to have AIs that can defend and attack positions dynamically based on the state of the world. The initial plan was to use a state machine in each character to determine its own task, simulate what a player might do, and relying on the emergent cooperation of many agents to achieve this dynamic behavior. I also experimented with stacked state machine designs to account for temporarily switching state to something like “attacking” before switching back to the previous state.
+            </p>
+            <img src="res/AIInitial.png">
+            <p>
+                However, during implementation I estimated the time to tune it was too unpredictable, so I switched to a hierarchical top-down algorithm of the current system. This would directly answer the problem of coordinated defense and offense without relying on emergence. Each team has its own strategizer, which assigned units to objectives, and those objectives assign specific tasks like holding a position or digging a set of tiles to the characters. To prevent lag spikes, calculations are time sliced and cyclic.
+            </p>
+            <img src="res/AIFinal.png">
         </section>
         <section>
             <h2>Product</h2>
