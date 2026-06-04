@@ -30,7 +30,10 @@
             <p>
                 In the initial connection, the client pings the master server for a list of available game instances. Each game instance has an IP end point that the client can connect to to join the instance.
             </p>
-            <img src="res/ClientServer.png">
+            <figure>
+                <figcaption><em>Figure 1: Client and master server connection flow.</em></figcaption>
+                <img src="res/ClientServer.png">
+            </figure>
             <h3>Communication</h3>
             <p>
                 I used LiteNetLib as a network library as it was a good balance between the flexibility of raw sockets and the ease of a high-level game development network library.
@@ -38,7 +41,10 @@
             <p>
                 There are three primary ways the client and server communicate. Polling was a natural choice as LiteNetLib polls incoming network events. 
             </p>
-            <img src="res/Communication.png">
+            <figure>
+                <figcaption><em>Figure 2: Client and server communication patterns.</em></figcaption>
+                <img src="res/Communication.png">
+            </figure>
         </section>
         <section>
             <h2>Dataflow</h2>
@@ -49,43 +55,67 @@
             <p>
                 I did not want to tightly couple my gameplay systems with the game engine, so I separated the model and the adapter layers. The adapter (Godot) would handle physics server side and rendering client side.
             </p>
-            <img src="res/Architecture.png">
+            <figure>
+                <figcaption><em>Figure 3: Gameplay system architecture.</em></figcaption>
+                <img src="res/Architecture.png">
+            </figure>
             <h3>Movement</h3>
             <p>
                 Players use WASD to move. The server uses Godot to calculate the new position based on the velocity, and updates the client. Players will automatically fall into trenches if their center enters a trench cell, and they can exit by moving towards a trench wall and pressing space.
             </p>
-            <img src="res/Movement.png">
+            <figure>
+                <figcaption><em>Figure 4: Server-authoritative movement flow.</em></figcaption>
+                <img src="res/Movement.png">
+            </figure>
             <h3>Shooting</h3>
             <p>
                 In the prototype, the client streams input information to the server. When the player fires a shot, the server reduces the health of a hit enemy if applicable and communicates the event to the client. The client adds a projectile to the scene which is quickly deleted after its timer runs out.
             </p>
-            <img src="res/Shooting.png">
+            <figure>
+                <figcaption><em>Figure 5: Prototype shooting data flow.</em></figcaption>
+                <img src="res/Shooting.png">
+            </figure>
         </section>
         <section>
             <h2>User Interface</h2>
             <p>
                 My initial user interface had components in three corners and the bottom. I placed the health at the bottom, the abilities in the bottom left, weapon information and purchasing in the bottom right, and the currency in the top left. The goal was so that users could clearly distinguish each component, and if they wanted information on a specific component, they could glance at the corner and only see the information they needed.
             </p>
-            <img src="res/UiFirst.png">
+            <figure>
+                <figcaption><em>Figure 6: Initial user interface layout.</em></figcaption>
+                <img src="res/UiFirst.png">
+            </figure>
             <p>
                 After receiving feedback about the different components being too far apart, I moved everything to the bottom right corner. This allowed users to quickly navigate between features using a mouse and take in more information at a glance.
             </p>
-            <img src="res/UISecond.png">
+            <figure>
+                <figcaption><em>Figure 7: Revised bottom-right user interface layout.</em></figcaption>
+                <img src="res/UISecond.png">
+            </figure>
             <p>
                 Later on in testing, I found that play testers weren't really primed to open up the upgrades tab to change their equipment. To prompt them, I added a float at the top right of the screen that would expand when an upgrade became available, that could also be hidden if they wanted to preserve logistics. This formed a balance between clear separation of upgrades versus current equipment with proximity and having all the important indicators grouped close together.
             </p>
-            <img src="res/UIThird.png">
+            <figure>
+                <figcaption><em>Figure 8: Upgrade prompt user interface iteration.</em></figcaption>
+                <img src="res/UIThird.png">
+            </figure>
         </section>
         <section>
             <h2>Character AI</h2>
             <p>
                 The AI went through several draft designs. The end goal was to have AIs that can defend and attack positions dynamically based on the state of the world. The initial plan was to use a state machine in each character to determine its own task, simulate what a player might do, and relying on the emergent cooperation of many agents to achieve this dynamic behavior. I also experimented with stacked state machine designs to account for temporarily switching state to something like “attacking” before switching back to the previous state.
             </p>
-            <img src="res/AIInitial.png">
+            <figure>
+                <figcaption><em>Figure 9: Initial character AI design.</em></figcaption>
+                <img src="res/AIInitial.png">
+            </figure>
             <p>
                 However, during implementation I estimated the time to tune it was too unpredictable, so I switched to a hierarchical top-down algorithm of the current system. This would directly answer the problem of coordinated defense and offense without relying on emergence. Each team has its own strategizer, which assigned units to objectives, and those objectives assign specific tasks like holding a position or digging a set of tiles to the characters. To prevent lag spikes, calculations are time sliced and cyclic.
             </p>
-            <img src="res/AIFinal.png">
+            <figure>
+                <figcaption><em>Figure 10: Final hierarchical character AI design.</em></figcaption>
+                <img src="res/AIFinal.png">
+            </figure>
         </section>
         <section>
             <h2>Product</h2>
